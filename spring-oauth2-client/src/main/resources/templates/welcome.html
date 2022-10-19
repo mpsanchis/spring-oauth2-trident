@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OA2 Hello</title>
+</head>
+<body>
+<h1 th:text="'Hello, ' + ${userName}"> </h1>
+<h2> Welcome to the main page of 'Hello OAuth2'! </h2>
+
+<form action="/welcome" method="post">
+    <input type="hidden"
+           th:name="${_csrf.parameterName}"
+           th:value="${_csrf.token}" />
+    <button type="submit">Request secret info: </button>
+</form>
+
+<h3 th:text="${secretInfo}"></h3>
+
+</body>
+</html>

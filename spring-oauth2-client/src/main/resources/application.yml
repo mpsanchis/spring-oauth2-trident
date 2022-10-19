@@ -1,0 +1,25 @@
+logging:
+  level:
+    root: debug
+
+server:
+  port: 8081
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          my-auth-server:
+            client-id: "localhostclient"
+            client-secret: "localhostsecret"
+            scope: read:secret, openid
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
+        provider:
+          my-auth-server:
+            issuer-uri: "http://auth-server:8086"
+
+oauth2-config:
+  init-auth-path: "oauth2/authorization/my-auth-server"
+  resource-url: "http://localhost:8085/secret"
