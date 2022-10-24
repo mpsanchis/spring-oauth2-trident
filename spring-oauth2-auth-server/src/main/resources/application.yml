@@ -1,0 +1,11 @@
+servlet:
+  session:
+    cookie:
+      name: AUTHSERVERSESSIONID # when debugging, better to have a unique cookie name
+
+server:
+  port: 8086
+
+logging:
+  level:
+    root: debug
