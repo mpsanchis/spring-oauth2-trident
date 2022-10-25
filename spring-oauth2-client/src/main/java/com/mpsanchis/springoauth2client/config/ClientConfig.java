@@ -18,6 +18,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class ClientConfig {
 
     @Bean
+    // Used to send request to Resource Server
     WebClient webClient(OAuth2AuthorizedClientManager authorizedClientManager) {
         ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2 =
             new ServletOAuth2AuthorizedClientExchangeFilterFunction(authorizedClientManager);
@@ -32,7 +33,8 @@ public class ClientConfig {
     @Bean
     OAuth2AuthorizedClientManager authorizedClientManager(ClientRegistrationRepository clientRegistrationRepository,
                                                           OAuth2AuthorizedClientRepository authorizedClientRepository) {
-
+        // Used to encapsulate OAuth2 security details (token) in request to Resource Server
+        // See: https://github.com/spring-projects/spring-security/blob/5.2.0.RELEASE/samples/boot/oauth2webclient/src/main/java/sample/config/WebClientConfig.java
         OAuth2AuthorizedClientProvider authorizedClientProvider =
             OAuth2AuthorizedClientProviderBuilder.builder()
                 .authorizationCode()

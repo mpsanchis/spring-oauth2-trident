@@ -32,7 +32,7 @@
             <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
         </dependency>
 
-<!--        Needed to load filterChain automatically. Otherwise we get:
+<!--        Nimbus needed to load filterChain automatically. Otherwise we get:
             java.lang.NoClassDefFoundError: org/springframework/security/oauth2/server/resource/web/BearerTokenResolver
 -->
         <dependency>

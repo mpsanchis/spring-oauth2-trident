@@ -9,6 +9,7 @@
 <h2> Welcome to the main page of 'Hello OAuth2'! </h2>
 
 <form action="/welcome" method="post">
+<!--    csrf token needed in POST requests: enabled by Spring Security by default-->
     <input type="hidden"
            th:name="${_csrf.parameterName}"
            th:value="${_csrf.token}" />

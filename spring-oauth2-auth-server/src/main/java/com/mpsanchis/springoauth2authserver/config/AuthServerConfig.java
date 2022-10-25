@@ -68,6 +68,7 @@ public class AuthServerConfig {
     @Order(2)
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         // handles the redirect to the login page from the authorization server filter chain
+        // rationale: https://stackoverflow.com/a/70295987
         http.formLogin(Customizer.withDefaults());
 
         return http.build();
@@ -105,7 +106,8 @@ public class AuthServerConfig {
             .build();
     }
 
-    // JWT crypto beans and method below:
+    // JWT crypto beans and method below, as provided in Spring sample code
+    // https://docs.spring.io/spring-authorization-server/docs/current/reference/html/getting-started.html#developing-your-first-application
 
     private static KeyPair generateRsaKey() {
         KeyPair keyPair;
